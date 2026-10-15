@@ -1,0 +1,24 @@
+# Credentials & sensitive configs
+config.php
+.env
+
+# Dependencies
+vendor/
+
+# User uploads and attachments
+uploads/*
+!uploads/.gitkeep
+
+# Archives & logs
+*.zip
+*.log
+error_log
+
+# Scratch scripts & temporary test files
+scratch*
+
+# OS & IDE metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
