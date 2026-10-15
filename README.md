@@ -1,43 +1,161 @@
-# Zaqar: The Email Spoofer v1.3
-A powerful PHP email spoofer with a polished UI, rich text editor, and multiple sending options.
+# Q4 Campaign Manager & Outreach Engine
 
-<img src="https://github.com/TobinShields/Zaqar_Mailer/blob/master/img/screenshots.png?raw=true" width="100%">
+An enterprise-grade, multi-channel outreach automation platform built with PHP. Combines high-deliverability SMTP inbox rotation, Google Gemini AI personalization and deliverability scoring, automated multi-touch follow-ups with smart IMAP reply detection, bulk SMS broadcasting via Africa's Talking, and real-time lead scraping and verification.
 
-## What's new in v1.3?
-### Added
-1. Users can now upload attachments! This feature has been tested and works using .png, .docx, and .pdf files. Has not been tested using possibly malicious payloads for a target--although, if it passes the email virus scan then it should be fine.
-### Changed
-2. Zaqar is now no longer using the default mail() function to send emails, but instead using the PHPMailer library. This appears to be the cleaner way to send messages overall, plus it was what easily allowed for attachments. Will continue to experiment with more features of this lib.   
+---
 
-## How to install and use
-To use Zaqar you first need to have access to a webserver that has SMTP and PHP enabled. Most web hosting companies have this enabled by default and require no setup.  Zaqar, like all PHP email spoofers, will not work without this kind of service as you need to have a mail server for the PHP mail() function to work. To get Zaqar setup you will need to move through the following steps:
+## 🚀 Key Features
 
-1. First, make sure you download the full Zaqar_EmailSpoofer folder and then upload it onto the root directory of your web server (unzipped). This can be done using an FTP client or the file manager provided by your hosting service. There are tons of guides on how to do this—if you need help, check your web hosting FAQs as they will likely have an entry on uploading files and folders using FTP or their file manager.
+### 1. Smart Mailer Engine (`mailer.php`, `send.php`)
+- **Multi-Account SMTP Rotation:** Dynamically distributes cold email batches across multiple authenticated Google Workspace, Gmail, or custom SMTP accounts to bypass daily sending quotas and protect sender reputation.
+- **Persistent Keep-Alive Connection Pooling:** Reuses active SMTP sockets via PHPMailer for fast transmission speeds.
+- **Real-Time Chunked Progress Streaming:** Streams live delivery updates and percentage completion to the browser using HTTP chunked transfer encoding (`Transfer-Encoding: chunked`).
+- **Rich HTML & WYSIWYG Editor:** Fully formatted messages with Simditor, plus raw text fallback.
+- **File Attachments:** Native upload and delivery for documents, contracts, RFQs, and image attachments.
+- **50/50 A/B Split Testing:** Simultaneously test two different subject lines and message bodies to measure winning conversion rates.
 
-2. Once the file is uploaded you should navigate to the application file by typing http://[YOUR_DOMAIN_NAME]/Zaqar_EmailSpoofer/index.html into your URL bar. From that point you should be able to see the application. There is no additional configuration or installation needed.
+### 2. Google Gemini AI Intelligence (`gemini_helper.php`, `spam_checker.php`, `ai_variant.php`)
+- **Deliverability & Spam Trigger Analysis:** Evaluates email copy and subjects against modern ISP spam filters, computes a 0–100 risk score, and generates clean rewrites.
+- **AI A/B Test Variant Generator:** Automatically crafts alternative Variant B angles using distinct psychological hooks (curiosity, urgency, value proposition).
+- **Domain-Tailored Icebreakers:** Dynamically extracts the recipient's domain and crafts unique, context-aware opening sentences for every lead.
 
-3. To actually use the application you simply populate the form. Make sure that you keep in mind that the "from" address is who you are spoofing, and that the "to" address is who you actually want to receive your message. You will need to indicate that you are not using the spoofer for evil before you can submit your message. If there were no errors then you should get a success message saying that the email was sent. You can type the body of your message using rich text or raw text.
+### 3. Automated Follow-Ups & Smart Reply Detection (`cron_worker.php`, `imap_checker.php`)
+- **Scheduled Sequences:** Queue automated follow-ups with custom delay intervals (e.g. 2–5 days).
+- **Automated IMAP Reply Detection:** Background worker connects to your IMAP inbox, detects incoming replies from prospects, and **instantly halts pending follow-ups** to prevent awkward double-messaging.
 
-4. If you are getting errors when attempting to send an attachment, the php.ini file may need to be modified. Check out [this guide](https://mediatemple.net/community/products/dv/204404784/how-do-i-increase-the-php-upload-limits) to learn how to adjust the PHP upload restrictions on a webserver. 
+### 4. Bulk SMS Broadcasting Engine (`sms.php`, `sms_sender.php`)
+- **Africa's Talking Gateway:** Global and regional SMS dispatch across Nigeria (+234), Kenya (+254), and international destinations.
+- **Number Normalization:** Cleans and formats phone numbers automatically.
+- **Live Dispatch Reports:** Displays real-time per-number delivery status and carrier cost reporting.
 
-Keep in mind that if you are using a cheap or low-quality hosting provider there is a chance that your spoofed message will be marked as spam. However, if you are using a free web hosting provider (like 000WebHost) there is a 100% chance that your message will be marked as spam and your message will go unnoticed by your target. While it’s not ideal for students or those learning purposes, the best results come from using reputable (but often more expensive) hosting providers. I am not endorsing any provider in particular, but I can confirm that this works using both Bluehost and GoDaddy hosting.  
+### 5. 3-Layer Email Hygiene & List Verifier (`verify.php`)
+- **Syntax Validation:** Strict RFC format checks.
+- **DNS MX Record Resolution:** Validates that target domains have active mail exchange records before sending to reduce bounce rates.
+- **Role-Based Mailbox Flagging:** Highlights generic inboxes (`admin@`, `support@`, `sales@`, `info@`).
+- **Export Clean Lists:** One-click CSV export of verified leads.
 
-If you run into issues or need help getting this set up please post in the “issues” section so that we can get it working for you.  
+### 6. Automated Lead & Web Scraper (`scraper.php`)
+- **Targeted Lead Discovery:** Scrapes organic search results via DuckDuckGo without requiring expensive third-party search APIs.
+- **In-Depth Email Extraction:** Parses target domain homepages and contact pages to harvest relevant contact emails.
+- **Export to CSV:** Direct download of newly discovered prospect lists.
 
-## What makes Zaqar different?
-Search for “PHP Mail Spoofer” and you will get dozens of GitHub pages that host a simple PHP script and poorly designed HTML form. Frankly speaking, these applications look ugly and their options are limited. Few offer the ability to craft the spoofed message using a rich text editor—which is a critical feature in order to build believable messages. Additionally, Zaqar allows users to send using the To, Cc, and Bcc fields for greater control over how messages are sent. Users can also upload attachments to the email, which is important if a penetration tester is attempting to send a payload to a target via email. Zaqar was built to be the tool that you keep coming back to: both for its sleek and modern UI, and simple but powerful spoofing and mail features.  Using Bootstrap as the front-end framework, Simditor as the rich text editor, and PHPmailer as the mail script library, Zaqar was built to be easy to use allow you to build believable messages. This will be the only mail spoofer you will ever need. 
+### 7. Campaign Analytics & Real-Time Tracking (`analytics.php`, `track.php`, `history.php`)
+- **Open Tracking:** 1x1 invisible tracking pixel records recipient opens, timestamps, IP addresses, and User-Agents.
+- **Click Tracking:** Rewrites outgoing links through a fast 302 redirect handler to record CTR metrics.
+- **A/B Performance Comparison:** Side-by-side open and click metrics for Variant A vs. Variant B.
 
-## What Does Zaqar Mean?
-In Mesopotamian mythology, Zaqar is the messenger of the god Sin. He relays these messages to mortals through his power over their dreams and nightmares. Seemed fitting and less dull than "Email Spoofer".
+### 8. Full REST API & Headless Integration (`API_DOCUMENTATION.md`)
+- Complete headless REST API supporting cross-origin frontend apps (React, Next.js, Vue, mobile apps) with session-based authentication (`PHPSESSID`).
+- Full API documentation available in [API_DOCUMENTATION.md](file:///c:/wamp64/www/mail/API_DOCUMENTATION.md).
 
-## Disclaimer and Terms of Usage
-By using this application you are agreeing to only send a spoofed email if either of the two situation are true:
+---
 
-1) You are conducting a formal and legal penetration test in which you have the explicit permission of the organization that represents the target, and such a targeted attack is outlined in your planned attack scope.
+## 📁 Repository Structure
 
-2) You are a student or learning about mail systems and want to learn more about mail security. If this is the case, you should only be spoofing accounts that you have legal access to, or have otherwise gotten permission to use. Spoofed emails sent for the sake of learning should not attempt to steal credentials or other sensitive information, even as a ‘joke’ or ‘prank.’
+```
+├── API_DOCUMENTATION.md    # Full REST API documentation & frontend integration guide
+├── README.md               # Project overview and deployment guide
+├── config.example.php      # Starter configuration template (credentials sanitized)
+├── .gitignore              # Protects config.php, uploads, vendor, and logs from Git
+├── composer.json           # Composer dependencies (PHPMailer, Africa's Talking)
+│
+├── index.php               # Central dashboard & authentication gate
+├── login.php               # Session authentication handler
+├── guide.php               # In-app visual step-by-step master guide
+│
+├── send.php                # Smart Mailer UI (A/B testing, AI icebreakers, file uploads)
+├── mailer.php              # Real-time streaming SMTP dispatch engine
+│
+├── gemini_helper.php       # Google Gemini AI API integration helper
+├── spam_checker.php        # AI spam score & deliverability recommendations
+├── ai_variant.php          # AI-powered A/B copy generator
+│
+├── cron_worker.php         # Automated follow-up dispatcher (CLI or Cron URL)
+├── imap_checker.php        # IMAP listener for detecting recipient replies
+│
+├── sms.php                 # SMS broadcast interface
+├── sms_sender.php          # Africa's Talking SMS API gateway dispatcher
+│
+├── verify.php              # 3-layer email list cleaner and MX validator
+├── scraper.php             # Organic search web lead crawler & email scraper
+│
+├── analytics.php           # Campaign open/click performance metrics dashboard
+├── track.php               # Public pixel and click redirect tracking endpoint
+└── history.php             # Historical dispatch logs and batch summaries
+```
 
-Using this application for any other reason falls outside of its intended use and is not endorsed, encouraged, or approved by the application’s creator or its contributors. This is especially true if this application is being used to send spam messages or commit fraud. This mailer does little to protect the identity of where it was truly sent and the message can be easily tracked back to the originator.  It only masks the identity on a surface level inside of a mail client.
+---
 
-## Want to contribute? We have stuff to do!
-Check out [the changelog](https://github.com/TobinShields/Zaqar_EmailSpoofer/blob/master/changelog.md) for projects and 'wish list' items! This project can be made better by you.
+## 🛠️ Installation & Setup
+
+### 1. Prerequisites
+- **Web Server:** Apache or Nginx (e.g. WampServer, XAMPP, or Linux VPS).
+- **PHP Version:** PHP 8.0 or higher.
+- **Required PHP Extensions:** `curl`, `openssl`, `imap`, `mbstring`, `fileinfo`.
+- **Composer:** Installed globally.
+
+### 2. Clone & Install Dependencies
+```bash
+git clone https://github.com/alagaddonjuan/sender.git
+cd sender
+composer install
+```
+
+### 3. Configure Credentials
+1. Copy the template configuration file:
+   ```bash
+   cp config.example.php config.php
+   ```
+2. Open `config.php` and configure your credentials:
+   - **Dashboard Access:** Set `$secret_password` for securing the web interface.
+   - **Google Gemini AI:** Set `$gemini_api_key` (get yours from [Google AI Studio](https://aistudio.google.com/)).
+   - **Africa's Talking SMS:** Configure `$at_username` and `$at_api_key`.
+   - **SMTP Accounts (Inbox Rotation):** Add one or more Gmail / Google Workspace SMTP accounts with their 16-character Google App Passwords:
+     ```php
+     $smtp_accounts = [
+         [
+             'host' => 'smtp.gmail.com',
+             'user' => 'outreach@yourdomain.com',
+             'pass' => 'your-16-char-app-password',
+             'port' => 587
+         ],
+         // Add additional accounts for load balancing:
+         [
+             'host' => 'smtp.gmail.com',
+             'user' => 'sales@yourdomain.com',
+             'pass' => 'your-second-app-password',
+             'port' => 587
+         ]
+     ];
+     ```
+   - **IMAP Reply Listener:** Set `$imap_host`, `$imap_user`, and `$imap_pass` for automated reply detection.
+
+> 🔒 **Security Notice:** `config.php` is strictly excluded in `.gitignore` to prevent secret exposure on GitHub. Never commit live passwords or API keys.
+
+---
+
+## ⏰ Cron Jobs & Automation
+
+To enable automatic follow-ups and reply detection, set up cron jobs on your server:
+
+```bash
+# Check for incoming replies and dispatch due follow-ups every 15 minutes
+*/15 * * * * php /path/to/sender/cron_worker.php >> /path/to/sender/cron.log 2>&1
+```
+
+Or trigger securely via HTTP webhook with your cron token:
+```bash
+curl "https://your-domain.com/cron_worker.php?token=cron123"
+```
+
+---
+
+## 📖 API Documentation
+
+The platform includes a complete REST API for headless integrations. Refer to [API_DOCUMENTATION.md](file:///c:/wamp64/www/mail/API_DOCUMENTATION.md) for endpoint details, parameter schemas, and frontend code samples (React, Next.js, and Vanilla JavaScript).
+
+---
+
+## 📄 License
+
+This software is licensed for internal enterprise and marketing operations under [LICENSE](file:///c:/wamp64/www/mail/LICENSE).
