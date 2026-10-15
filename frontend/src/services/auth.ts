@@ -27,7 +27,20 @@ export async function logout(): Promise<void> {
 }
 
 export function getSession(): SessionUser | null {
+	if (typeof window !== 'undefined') {
+		const searchParams = new URLSearchParams(window.location.search);
+		if (searchParams.get('session') === 'active' || searchParams.get('auth') === '1') {
+			sessionStorage.setItem('q4iltd-api-session', 'active');
+			searchParams.delete('session');
+			searchParams.delete('auth');
+			const newSearch = searchParams.toString();
+			const newUrl =
+				window.location.pathname + (newSearch ? `?${newSearch}` : '') + window.location.hash;
+			window.history.replaceState({}, '', newUrl);
+		}
+	}
 	return sessionStorage.getItem('q4iltd-api-session') === 'active'
 		? { id: 'api-session', email: '', name: 'Q4 Workspace' }
 		: null;
 }
+

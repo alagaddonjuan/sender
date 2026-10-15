@@ -33,7 +33,10 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center py-3">
                     <h4 class="mb-0"><i class="bi bi-phone-fill me-2"></i>SMS Broadcasting Engine</h4>
-                    <a href="index.php" class="btn btn-sm btn-light text-success fw-bold">Back to Dashboard</a>
+                    <div class="d-flex gap-2">
+                        <a href="beta/?session=active#/sms" class="btn btn-sm btn-warning text-dark fw-bold"><i class="bi bi-stars me-1"></i>Try Beta SMS</a>
+                        <a href="index.php" class="btn btn-sm btn-light text-success fw-bold">Back to Dashboard</a>
+                    </div>
                 </div>
                 <div class="card-body p-4">
                     

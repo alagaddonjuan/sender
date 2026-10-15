@@ -35,7 +35,10 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center py-3">
                     <h4 class="mb-0"><i class="bi bi-send-fill me-2"></i>Smart Mailer Engine</h4>
-                    <a href="index.php" class="btn btn-sm btn-light">Back to Dashboard</a>
+                    <div class="d-flex gap-2">
+                        <a href="beta/?session=active#/campaigns" class="btn btn-sm btn-warning text-dark fw-bold"><i class="bi bi-stars me-1"></i>Try Beta Mailer</a>
+                        <a href="index.php" class="btn btn-sm btn-light">Back to Dashboard</a>
+                    </div>
                 </div>
                 <div class="card-body p-4">
                     <form id="mailerForm" enctype="multipart/form-data">

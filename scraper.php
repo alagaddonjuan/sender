@@ -97,7 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['keywords'])) {
         <div class="col-lg-9">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold"><i class="bi bi-search text-primary me-2"></i>Lead Scraper</h3>
-                <a href="index.php" class="btn btn-outline-primary">Back to Dashboard</a>
+                <div class="d-flex gap-2">
+                    <a href="beta/?session=active#/scraper" class="btn btn-warning text-dark fw-bold"><i class="bi bi-stars me-1"></i>Try Beta Scraper</a>
+                    <a href="index.php" class="btn btn-outline-primary">Back to Dashboard</a>
+                </div>
             </div>
 
             <!-- Explainer -->

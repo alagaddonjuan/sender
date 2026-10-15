@@ -7,8 +7,13 @@ export default defineConfig(({ mode }) => {
 	const apiUrl = (env.VITE_API_URL || 'https://sender.q4iltd.com').replace(/\/+$/, '');
 
 	return {
+		base: './',
 		plugins: [react()],
 		resolve: { alias: { '@': path.resolve(__dirname, 'src') } },
+		build: {
+			outDir: '../beta',
+			emptyOutDir: true,
+		},
 		server: {
 			port: 5174,
 			proxy: {

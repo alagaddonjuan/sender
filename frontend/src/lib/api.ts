@@ -1,7 +1,9 @@
 import axios, { AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios';
 
+const apiBase = import.meta.env.DEV ? '/q4-api' : '..';
+
 const client = axios.create({
-	baseURL: '/q4-api',
+	baseURL: apiBase,
 	withCredentials: true,
 	headers: { Accept: 'application/json' },
 });

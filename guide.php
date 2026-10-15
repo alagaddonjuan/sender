@@ -41,8 +41,10 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             
             <div class="guide-header">
                 <h1 class="fw-bold mb-3"><i class="bi bi-book-half"></i> Master Your Campaign Manager</h1>
-                <p class="lead mb-4">A simple, step-by-step guide for beginners on how to find leads, verify them, and launch high-converting campaigns.</p>
-                <a href="index.php" class="btn btn-light fw-bold text-primary rounded-pill px-4 py-2 shadow-sm">Back to Dashboard</a>
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="beta/?session=active#/guide" class="btn btn-warning fw-bold text-dark rounded-pill px-4 py-2 shadow-sm"><i class="bi bi-stars me-1"></i>Try Beta Guide</a>
+                    <a href="index.php" class="btn btn-light fw-bold text-primary rounded-pill px-4 py-2 shadow-sm">Back to Dashboard</a>
+                </div>
             </div>
 
             <!-- Step 1: Scrape -->

@@ -120,6 +120,7 @@ $recentEvents = array_slice($recentEvents, 0, 50);
             <p class="text-muted small">Live tracking metrics for your campaigns</p>
         </div>
         <div class="d-flex gap-2">
+            <a href="beta/?session=active#/analytics" class="btn btn-warning btn-sm text-dark fw-bold"><i class="bi bi-stars me-1"></i>Try Beta Analytics</a>
             <a href="history.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-journal-text me-1"></i>Raw Logs</a>
             <a href="index.php" class="btn btn-primary btn-sm"><i class="bi bi-house-door-fill me-1"></i>Dashboard</a>
         </div>

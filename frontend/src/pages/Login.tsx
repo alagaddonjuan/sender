@@ -62,6 +62,22 @@ export default function Login() {
 			<p className="login-footer">
 				Unlock your Q4 mailer session using the backend access password.
 			</p>
+			<div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #e2e8f0', textAlign: 'center' }}>
+				<a
+					href="../index.php"
+					style={{
+						fontSize: '0.85rem',
+						color: '#64748b',
+						textDecoration: 'none',
+						fontWeight: 600,
+						display: 'inline-flex',
+						alignItems: 'center',
+						gap: '4px',
+					}}
+				>
+					<span>← Return to Classic Login</span>
+				</a>
+			</div>
 		</form>
 	);
 }

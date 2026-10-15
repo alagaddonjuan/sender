@@ -70,6 +70,11 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 </div>
                 <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">UNLOCK ENGINE</button>
             </form>
+            <div class="text-center mt-3 pt-3 border-top">
+                <a href="beta/#/login" class="text-decoration-none small text-primary fw-semibold">
+                    <i class="bi bi-stars text-warning me-1"></i>Try New React Beta Version &rarr;
+                </a>
+            </div>
             <?php if(isset($_GET['error'])): ?>
                 <div class="alert alert-danger mt-3 py-2 small text-center">Invalid Password</div>
             <?php endif; ?>
@@ -103,11 +108,40 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 <body>
 
 <div class="container">
-    <div class="row justify-content-center text-center mb-5">
+    <div class="row justify-content-center text-center mb-4">
         <div class="col-md-8">
             <h1 class="display-5 fw-bold text-dark">Welcome to Q4 Campaign Manager</h1>
             <p class="lead text-muted">Select a module to begin your professional mailing session.</p>
-            <hr class="w-25 mx-auto border-2 border-primary">
+            <hr class="w-25 mx-auto border-2 border-primary mb-0">
+        </div>
+    </div>
+
+    <!-- Beta Version Switch Banner -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white;">
+                <div class="card-body p-4 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                    <div class="d-flex align-items-center">
+                        <div class="me-3 p-3 rounded-circle" style="background: rgba(59, 130, 246, 0.2);">
+                            <i class="bi bi-rocket-takeoff-fill fs-2 text-warning"></i>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-center gap-2">
+                                <h5 class="fw-bold mb-0">Modern Single Page App (Beta)</h5>
+                                <span class="badge bg-warning text-dark fw-bold px-2 py-1">BETA</span>
+                            </div>
+                            <p class="text-light opacity-75 mb-0 small">
+                                Experience our new React 18 + TypeScript frontend with live streaming controls, interactive analytics, and instant tab transitions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <a href="beta/?session=active#/" class="btn btn-warning text-dark fw-bold px-4 py-2 rounded-pill shadow-sm text-nowrap">
+                            <i class="bi bi-stars me-1"></i>Launch Beta Version &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, Navigate, useLocation } from 'react-router-dom';
 import {
+	ArrowLeft,
 	BookOpen,
 	Activity,
 	LayoutDashboard,
@@ -83,7 +84,7 @@ export default function Layout() {
 					</span>
 					<span>
 						<strong>Q4iltd</strong>
-						<small>Q4 WORKSPACE</small>
+						<small>Q4 WORKSPACE (BETA)</small>
 					</span>
 				</Link>
 				<button
@@ -110,6 +111,27 @@ export default function Layout() {
 						),
 					)}
 				</nav>
+				<div style={{ padding: '0.75rem 1rem 0.25rem' }}>
+					<a
+						href="../index.php"
+						className="nav-link"
+						style={{
+							backgroundColor: 'rgba(255, 255, 255, 0.08)',
+							border: '1px solid rgba(255, 255, 255, 0.15)',
+							color: '#e2e8f0',
+							fontWeight: 600,
+							display: 'flex',
+							alignItems: 'center',
+							gap: '8px',
+							padding: '8px 12px',
+							borderRadius: '8px',
+							textDecoration: 'none',
+						}}
+					>
+						<ArrowLeft size={16} aria-hidden="true" />
+						<span>Classic Version</span>
+					</a>
+				</div>
 				<div className="sidebar-bottom">
 					<div className="workspace-account">
 						<span className="avatar">{user.name.slice(0, 1).toUpperCase()}</span>
@@ -144,6 +166,25 @@ export default function Layout() {
 						</div>
 					</div>
 					<div className="topbar-actions">
+						<a
+							href="../index.php"
+							className="topbar-status"
+							style={{
+								textDecoration: 'none',
+								color: '#0f172a',
+								backgroundColor: '#f1f5f9',
+								border: '1px solid #cbd5e1',
+								fontWeight: 600,
+								cursor: 'pointer',
+								display: 'inline-flex',
+								alignItems: 'center',
+								gap: '6px',
+							}}
+							title="Return to Classic PHP Dashboard"
+						>
+							<ArrowLeft size={14} aria-hidden="true" />
+							<span>Classic Version</span>
+						</a>
 						<span className="topbar-status">
 							<span className="status-dot" />
 							Q4 API

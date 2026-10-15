@@ -68,8 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['emailList'])) {
     <div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3>List Verifier</h3>
-                <a href="index.php" class="btn btn-primary">Back to Mailer</a>
+                <h3 class="fw-bold"><i class="bi bi-shield-check text-success me-2"></i>List Verifier</h3>
+                <div class="d-flex gap-2">
+                    <a href="beta/?session=active#/verify" class="btn btn-warning text-dark fw-bold"><i class="bi bi-stars me-1"></i>Try Beta Verifier</a>
+                    <a href="index.php" class="btn btn-primary">Back to Dashboard</a>
+                </div>
             </div>
 
             <!-- Usefulness Explanation -->
