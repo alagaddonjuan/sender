@@ -30,7 +30,7 @@ export default function Login() {
 		<form className="card login" onSubmit={submit}>
 			<Link className="login-brand" to="/" aria-label="Q4iltd home">
 				<span className="brand-mark" aria-hidden="true">
-					Q
+					Q4
 				</span>
 				<span>
 					<strong>Q4iltd</strong>
