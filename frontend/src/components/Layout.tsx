@@ -80,7 +80,7 @@ export default function Layout() {
 			>
 				<Link className="brand-lockup" to="/" aria-label="Q4iltd home">
 					<span className="brand-mark" aria-hidden="true">
-						Q
+						Q4
 					</span>
 					<span>
 						<strong>Q4iltd</strong>
